@@ -1,0 +1,59 @@
+services:
+  websocketserver:
+    build: /websocketserver
+    ports:
+      - "40000:40000"
+  authservice:
+    build: /authservice
+    ports:
+      - "44335:44335"
+    environment:
+      - ASPNETCORE_URLS=http://+:44335
+    depends_on:
+      mongodb:
+        condition: service_started
+        restart: true
+  chatservice:
+    build: /chatservice
+    ports:
+      - "44390:44390"
+    environment:
+      - ASPNETCORE_URLS=http://+:44390
+    depends_on:
+      mongodb:
+        condition: service_started
+        restart: true
+  hubservices:
+    build: /hubservices
+    ports:
+      - "44321:44321"
+    environment:
+      - ASPNETCORE_URLS=http://+:44321
+  mongodb:
+    build: /mongodb
+    ports:
+      - "27900:27900"
+  userserversservice:
+    build: ./userserversservice
+    ports:
+      - "44358:44358"
+    environment:
+      - ASPNETCORE_URLS=http://+:44358
+    depends_on:
+      mongodb:
+        condition: service_started
+        restart: true
+  userservice:
+    build: /userservice
+    ports:
+      - "44348:44348"
+    environment:
+      - ASPNETCORE_URLS=http://+:44348
+    depends_on:
+      mongodb:
+        condition: service_started
+        restart: true
+  whisperaiservice:
+    build: /whisperaiservice
+    ports:
+      - "45000:45000"

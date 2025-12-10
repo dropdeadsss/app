@@ -1,0 +1,286 @@
+* {
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center{
+    align-items: center;
+}
+
+.flex-direction-column-reverse{
+    flex-direction: column-reverse;
+}
+
+.flex-direction-row-reverse{
+    flex-direction: row-reverse;
+}
+
+.flex-spacebtw {
+    justify-content: space-between;
+}
+
+.cat-text{
+    height: fit-content;
+}
+
+.col-border{
+    border: 1px lightgray solid;
+    margin: 5px;
+    min-width: fit-content;
+}
+.profile-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+.server-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.home-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.userinfo-img{
+    width: 70px;
+    height: 70px;
+    border-radius: 30px;
+}
+
+.button-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.deletebutton-img{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.deletebutton{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.chat-profile-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.message-box{
+    overflow-y: auto;
+    width: 54vw;
+    height: 90vh;
+    padding: 5px;
+}
+
+.selectperson{
+    width: 54vw;
+    height: 90vh;
+    font-size: 200%;
+    color: rgb(148, 147, 147);
+    text-align: center;
+    justify-content: center;
+}
+
+.message{
+    border: 1px lightgray solid;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.mes-audio{
+    margin-top: 82vh;
+    position: absolute;
+    z-index: 10;
+}
+
+.own-message{
+    justify-content: flex-end;
+}
+
+.another-message{
+    justify-content: flex-start;
+}
+
+.message-input{
+    width: 46vw;
+    height: 8vh;
+    resize: none;
+}
+
+.elem-disable{
+    display: none;
+}
+
+.elem-enable{
+    display: flex;
+}
+
+.server-list{
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 5vw;
+    height: 98vh;
+    padding: 5px;
+}
+
+.people-list{
+    overflow-y: auto;
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 18vw;
+    height: 98vh;
+    padding: 5px;
+}
+
+.userinfo-list{
+    overflow-y: auto;
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 18vw;
+    height: 98vh;
+    padding: 5px;
+}
+
+.channels-list{
+    overflow-y: auto;
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 18vw;
+    height: 98vh;
+    padding: 5px;
+}
+
+.serverusers-list{
+    overflow-y: auto;
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 18vw;
+    height: 98vh;
+    padding: 5px;
+}
+
+.people-list-elems{
+    border: 1px lightgray solid;
+    transition: box-shadow 0.3s ease;
+}
+
+.people-list-elems:hover{
+    box-shadow: 0 0 10px 2px rgba(44, 44, 44, 0.5);
+}
+
+
+.server-list-elems{
+    border: 1px lightgray solid;
+    transition: box-shadow 0.3s ease;
+    margin: 5px;
+}
+
+.server-list-elems:hover{
+    box-shadow: 0 0 10px 2px rgba(44, 44, 44, 0.5);
+}
+
+.userinfo-panel{
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 14vw;
+    height: 98vh;
+}
+
+.userself-panel{
+    min-height: fit-content;
+    min-width: fit-content;
+    height: 8vh;
+    border-top: 1px lightgray solid;
+}
+
+.roles{
+    font-size: 125%;
+}
+
+.channels{
+    font-size: 125%;
+}
+
+.channelsName{
+    font-size: 115%;
+}
+
+.channels-btn{
+    border: none;
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+    background-color: white;
+}
+
+.channels-btn:hover{
+    box-shadow: 0 0 10px 2px rgba(44, 44, 44, 0.5);
+}
+
+.decode{
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    margin: 5px;
+}
+
+.decode:hover{
+    box-shadow: 0 0 10px 2px rgba(44, 44, 44, 0.5);
+}
+
+.mes-div{
+    width: 50vw;
+    height: fit-content;
+    border-bottom: 2px lightgray solid;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.text-cont-mes{
+    word-wrap: break-word;
+    max-width: 28vw;
+    resize: none;
+    border: none;
+    margin: 5px;
+}
+
+.text-cont{
+    overflow-y: auto;
+    resize: none;
+    border: none;
+    margin: 5px;
+}

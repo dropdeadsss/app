@@ -1,0 +1,6 @@
+@UserServersService_HostAddress = http://localhost:5297
+
+GET {{UserServersService_HostAddress}}/
+Accept: application/json
+
+###

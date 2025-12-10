@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Основное окно</title>
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body class="flex-col">
+  <div class="flex-row" id="contentDiv">
+    <div id="servers" class="flex-col col-border server-list"></div>
+    <div id="usersDiv" class="flex-row">
+      <div id="people" class="flex-col col-border flex-spacebtw people-list">
+        <div>
+          <div id="friends" class="flex-col cat-text">
+            <p>Друзья</p>
+          </div>
+          <div id="invites" class="flex-col cat-text">
+            <p>Приглашения</p>
+          </div>
+          <div id="requests" class="flex-col cat-text">
+            <p>Заявки</p>
+          </div>
+          <div id="blocks" class="flex-col cat-text">
+            <p>Заблокированные</p>
+          </div>
+        </div>
+        <div class="flex-row flex-center flex-spacebtw userself-panel" id="userSelf"></div>
+      </div>
+     
+      <div id="selectChat" class="flex-col flex-center col-border">
+        <div class="flex-row flex-center selectperson">
+          Выберите пользователя, с которым хотите начать общение
+        </div>
+      </div>
+
+      <div id="chat" class="flex-col col-border elem-disable">
+        <div id="messages" class="flex-col message-box"></div>
+        <div class="flex-row flex-center elem-disable" id="recordcont">
+          <audio id="audioPlayback" controls></audio>
+          <button id="audioPlaybackdelete" class="deletebutton">
+            <img id="audioPlaybackdeleteimg" class="deletebutton-img" src="imgs/delete.png" alt="Удалить">
+          </button> 
+        </div>
+        <div class="flex-row">
+          <textarea class="message-input" cols="50" rows="3" placeholder="Сообщение" id="messagecontent"></textarea>
+          <button id="sendmessagebtn" title="Отправить">
+            <img src="imgs/send.png" alt="Отправить" class="button-img">
+          </button>
+          <button id="sendvoicebtn" title="Голосовое сообщение">
+            <img id="sendvoicebtnimg" src="imgs/voice.png" alt="Голосовое сообщение" class="button-img">
+          </button>
+        </div>
+      </div>
+      <div id="userInfo" class="flex-col col-border userinfo-list"></div>
+    </div>
+    <div id="serversDiv" class="flex-row elem-disable">
+      <div id="channels" class="flex-col col-border channels-list">
+        <p class="channels">Каналы</p>
+        <div id="chatchannels" class="flex-col cat-text channelsName">
+        </div>
+        <div id="voicechannels" class="flex-col cat-text channelsName">
+        </div>
+      </div>
+
+      <div id="selectChChat" class="flex-col flex-center col-border">
+        <div class="flex-row flex-center selectperson">
+          Выберите чат, в который хотите зайти
+        </div>
+      </div>
+
+      <div id="chchat" class="flex-col col-border elem-disable">
+        <div id="chmessages" class="flex-col message-box"></div>
+          <div class="flex-row flex-center mes-audio elem-disable" id="chrecordcont">
+            <audio id="chaudioPlayback" controls></audio>
+            <button id="chaudioPlaybackdelete" class="deletebutton">
+              <img id="chaudioPlaybackdeleteimg" class="deletebutton-img" src="imgs/delete.png" alt="Удалить">
+            </button> 
+          </div>
+          <div class="flex-row">
+            <textarea class="message-input" cols="50" rows="3" placeholder="Сообщение" id="chmessagecontent"></textarea>
+            <button id="chsendmessagebtn" title="Отправить">
+              <img src="imgs/send.png" alt="Отправить" class="button-img">
+            </button>
+            <button id="chsendvoicebtn" title="Голосовое сообщение">
+              <img id="chsendvoicebtnimg" src="imgs/voice.png" alt="Голосовое сообщение" class="button-img">
+            </button>
+          </div>
+        </div>
+       <div class="flex-col serverusers-list col-border" id="serverusers">
+        
+       </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/index.js"></script>
+
+</body>
+</html>

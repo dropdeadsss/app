@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Авторизация</title>
+  <link rel="stylesheet" type="text/css" href="./css/auth.css">
+</head>
+<body class="flex-col flex-center">
+  <div id="flex-row">
+    <button class="switch-btn" id="switchauth">Вход</button>
+    <button class="switch-btn" id="switchreg">Регистрация</button>
+  </div>
+
+
+  <form id="loginForm" class="show flex-col form">
+    <input class="form-inputs" type="text" id="username" placeholder="Логин" required /><br/>
+    <input class="form-inputs" type="password" id="password" placeholder="Пароль" required /><br/>
+    <button class="form-btn" type="submit">Войти</button>
+  </form>
+
+  <form id="registerForm" class="hide flex-col form">
+    <input class="form-inputs" type="text" id="regName" placeholder="Имя пользователя" required />
+    <input class="form-inputs" type="date" id="regDob" placeholder="Дата рождения" required />
+    <input class="form-inputs" type="text" id="rephone" placeholder="Номер телефона" required />
+    <input class="form-inputs" type="email" id="regEmail" placeholder="Email" required />
+    <input class="form-inputs" type="password" id="regPassword" placeholder="Пароль" required />
+    <button class="form-btn" type="submit">Зарегистрироваться</button>
+  </form>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+    
+    document.getElementById('switchauth').addEventListener('click', (e) => {
+      e.preventDefault();
+
+      document.getElementById('registerForm').classList.remove('show');
+      document.getElementById('registerForm').classList.add('hide');
+      document.getElementById('loginForm').classList.add('show');
+      document.getElementById('loginForm').classList.remove('hide');
+    });
+
+    document.getElementById('switchreg').addEventListener('click', (e) => {
+      e.preventDefault();
+
+      document.getElementById('loginForm').classList.remove('show');
+      document.getElementById('loginForm').classList.add('hide');
+      document.getElementById('registerForm').classList.add('show');
+      document.getElementById('registerForm').classList.remove('hide');
+    });
+
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+
+        const data = {
+            email : username, 
+            password : password
+        }
+
+        let token;
+
+        fetch('https://localhost:44335/api/login/auth', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+          })
+          .then(response => response.text())
+          .then(data => {
+            console.log('Ответ сервера:', data);
+            token = data;
+            localStorage.setItem('token', 'Bearer ' + token);
+            ipcRenderer.send('login-success', 'Bearer ' + token);
+            alert('Авторизация прошла успешно!');
+          })
+          .catch(error => {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при авторизации.');
+          });
+            
+
+        
+
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('regName').value;
+        const email = document.getElementById('regEmail').value;
+        const password = document.getElementById('regPassword').value;
+        const dob = document.getElementById('regDob').value;
+        const phone = document.getElementById('rephone').value;   
+
+        const data = {
+            username: username,
+            email: email,
+            password: password,
+            dob : dob,
+            phone : phone
+        };
+
+        fetch('https://localhost:44335/api/registrate/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify(data)
+        })
+        .then(response => response.status)
+        .then(data => {
+        console.log('Ответ сервера:', data);
+        alert('Регистрация прошла успешно!');
+        })
+        .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при регистрации.');
+        });
+    });
+  </script>
+</body>
+</html>

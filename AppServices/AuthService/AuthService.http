@@ -1,0 +1,6 @@
+@AuthService_HostAddress = http://localhost:5289
+
+GET {{AuthService_HostAddress}}/registrate/
+Accept: application/json
+
+###
