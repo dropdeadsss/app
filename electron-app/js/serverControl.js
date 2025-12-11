@@ -5,10 +5,7 @@ import * as chatControl from './chatControl.js';
 const  signalR  = require('@microsoft/signalr');
 
 let micro;
-await navigator.mediaDevices.getUserMedia({ audio: true})
-.then(stream => {
-    micro = stream;
-});
+
 
 let ws = null;
 let hub = null; 
@@ -109,6 +106,12 @@ export async function createServerHtml(serverid){
             channelBtn.classList.add('channels-btn');
 
             channelBtn.onclick = async () => {
+                if(!micro){
+                    await navigator.mediaDevices.getUserMedia({ audio: true})
+                    .then(stream => {
+                        micro = stream;
+                    });
+                }
 
                 if(channelBtn.value != localStorage.getItem('currentServerVoiceChat')){
                     if(hub && hub._connectionState === 'Connected'){
