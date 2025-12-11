@@ -1,5 +1,5 @@
 import * as homeControl from './homeControl.js';
-import * as serverControl from './serverControl.js';
+//import * as serverControl from './serverControl.js';
 
 const { remote } = require('electron');
 const { ipcRenderer } = require('electron');
