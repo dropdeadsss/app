@@ -51,5 +51,5 @@
 После запуска контейнера будет загружаться выбранная в коде модель, поэтому нужно подождать перед использованием.
 
 ### Запуск клиента
-Для работы клиента приложения в режиме разработки необходимо скачать [Node.js](https://nodejs.org/en/download) и менеджер пакетов npm. Для запуска самого проекта нужно выполнить команду **npm run start**. 
-(По идее должно запуститься, но могут потребоваться доп. пакеты **npm install electron --save-dev**, **npm install electron-store**, **npm install @microsoft/signalr**, **npm install ws**)
+Для работы клиента приложения в режиме разработки необходимо скачать [Node.js](https://nodejs.org/en/download) и менеджер пакетов npm. После нужно установить пакеты через ***npm install***. Для запуска самого проекта нужно выполнить команду ***npm run start***. 
+(На всякий случай пакеты для работы приложения: ***npm install electron --save-dev***, ***npm install electron-store***, ***npm install @microsoft/signalr***, ***npm install ws***)
