@@ -53,4 +53,5 @@
 ### Запуск клиента
 Для работы клиента приложения в режиме разработки необходимо скачать [Node.js](https://nodejs.org/en/download) и менеджер пакетов npm. После нужно установить пакеты через ***npm install*** (все необходимое должно загрузиться из package.json и package-lock.json). Для запуска самого проекта нужно выполнить команду ***npm run start***. 
 
+
 (На всякий случай пакеты для работы приложения: ***npm install electron --save-dev***, ***npm install electron-store***, ***npm install @microsoft/signalr***, ***npm install ws***)
